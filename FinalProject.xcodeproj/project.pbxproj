@@ -16,6 +16,7 @@
 		164DF8FB1DF503D700D99880 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 164DF8F91DF503D700D99880 /* Main.storyboard */; };
 		164DF8FD1DF503D700D99880 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 164DF8FC1DF503D700D99880 /* Assets.xcassets */; };
 		164DF9001DF503D700D99880 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 164DF8FE1DF503D700D99880 /* LaunchScreen.storyboard */; };
+		F99480F31E1CD3D200401EEB /* data in Resources */ = {isa = PBXBuildFile; fileRef = F99480F21E1CD3D200401EEB /* data */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		164DF8FC1DF503D700D99880 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		164DF8FF1DF503D700D99880 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		164DF9011DF503D700D99880 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F99480F21E1CD3D200401EEB /* data */ = {isa = PBXFileReference; lastKnownFileType = folder; path = data; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 		164DF8F41DF503D700D99880 /* FinalProject */ = {
 			isa = PBXGroup;
 			children = (
+				F99480F21E1CD3D200401EEB /* data */,
 				164DF8F51DF503D700D99880 /* AppDelegate.swift */,
 				164DF8F91DF503D700D99880 /* Main.storyboard */,
 				160F000D1E0B928D00A94AA8 /* StartViewController.swift */,
@@ -103,7 +106,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0810;
-				LastUpgradeCheck = 0810;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "江鈺云";
 				TargetAttributes = {
 					164DF8F11DF503D600D99880 = {
@@ -137,6 +140,7 @@
 			files = (
 				164DF9001DF503D700D99880 /* LaunchScreen.storyboard in Resources */,
 				164DF8FD1DF503D700D99880 /* Assets.xcassets in Resources */,
+				F99480F31E1CD3D200401EEB /* data in Resources */,
 				164DF8FB1DF503D700D99880 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -197,6 +201,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -246,6 +251,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;

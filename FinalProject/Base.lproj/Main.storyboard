@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -115,31 +116,52 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qSC-hc-HlR">
-                                <rect key="frame" x="27" y="127" width="320" height="280"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="ivp-Bi-Tzw">
-                                <rect key="frame" x="128" y="511" width="118" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KV7-7y-vfB">
+                                <rect key="frame" x="0.0" y="64" width="375" height="541"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="KV7-7y-vfB" secondAttribute="height" multiplier="375:541" id="89E-9x-Smh"/>
+                                </constraints>
+                            </scrollView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" translatesAutoresizingMaskIntoConstraints="NO" id="ivp-Bi-Tzw">
+                                <rect key="frame" x="160" y="566" width="55" height="37"/>
                                 <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                             </pageControl>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1g5-py-38H">
-                                <rect key="frame" x="262" y="585" width="70" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                            <button autoresizesSubviews="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ssq-gl-uT1">
+                                <rect key="frame" x="147" y="613" width="80" height="46"/>
+                                <color key="backgroundColor" red="1" green="0.63921568630000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="46" id="THU-XD-JSm"/>
+                                    <constraint firstAttribute="width" constant="80" id="ujf-Ml-eEv"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="選擇">
-                                    <color key="titleColor" red="0.0" green="0.25098040700000002" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="chooseButton:" destination="Yde-1P-Fnu" eventType="touchUpInside" id="6UM-iV-rzs"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="V2V-su-cUE" firstAttribute="top" secondItem="ivp-Bi-Tzw" secondAttribute="bottom" constant="64" id="5rk-SC-4rf"/>
+                            <constraint firstItem="KV7-7y-vfB" firstAttribute="top" secondItem="skC-h5-kct" secondAttribute="top" constant="64" id="8Nh-ap-qyd"/>
+                            <constraint firstItem="ssq-gl-uT1" firstAttribute="centerX" secondItem="skC-h5-kct" secondAttribute="centerX" id="BUc-23-grI"/>
+                            <constraint firstItem="ivp-Bi-Tzw" firstAttribute="centerX" secondItem="skC-h5-kct" secondAttribute="centerX" id="Nqo-oS-C0a"/>
+                            <constraint firstItem="V2V-su-cUE" firstAttribute="top" secondItem="ssq-gl-uT1" secondAttribute="bottom" constant="10" id="arz-B6-dRr"/>
+                            <constraint firstAttribute="trailing" secondItem="KV7-7y-vfB" secondAttribute="trailing" id="cdg-ZX-8iq"/>
+                            <constraint firstItem="KV7-7y-vfB" firstAttribute="leading" secondItem="skC-h5-kct" secondAttribute="leading" id="esv-Rl-gLH"/>
+                            <constraint firstItem="KV7-7y-vfB" firstAttribute="centerX" secondItem="skC-h5-kct" secondAttribute="centerX" id="tjr-Ch-gKP"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="pageControl" destination="ivp-Bi-Tzw" id="8ta-82-adn"/>
+                        <outlet property="scrollView" destination="KV7-7y-vfB" id="GP0-HH-mMk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BFy-YG-4YJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="948" y="141"/>
+            <point key="canvasLocation" x="948" y="139.880059970015"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Ssg-Ir-bLf">
@@ -220,7 +242,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pKq-6E-TdM" id="CeI-ki-Dt0">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
