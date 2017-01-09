@@ -11,12 +11,13 @@
 		160F00081E0B8B9800A94AA8 /* MyCityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160F00071E0B8B9800A94AA8 /* MyCityViewController.swift */; };
 		160F000A1E0B8BA600A94AA8 /* ShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160F00091E0B8BA600A94AA8 /* ShopViewController.swift */; };
 		160F000C1E0B8BCA00A94AA8 /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160F000B1E0B8BCA00A94AA8 /* SettingTableViewController.swift */; };
-		160F000E1E0B928D00A94AA8 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160F000D1E0B928D00A94AA8 /* StartViewController.swift */; };
 		164DF8F61DF503D700D99880 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164DF8F51DF503D700D99880 /* AppDelegate.swift */; };
 		164DF8FB1DF503D700D99880 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 164DF8F91DF503D700D99880 /* Main.storyboard */; };
 		164DF8FD1DF503D700D99880 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 164DF8FC1DF503D700D99880 /* Assets.xcassets */; };
 		164DF9001DF503D700D99880 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 164DF8FE1DF503D700D99880 /* LaunchScreen.storyboard */; };
 		F99480F31E1CD3D200401EEB /* data in Resources */ = {isa = PBXBuildFile; fileRef = F99480F21E1CD3D200401EEB /* data */; };
+		F9DEE7091E23251400DF91E3 /* MyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9DEE7081E23251400DF91E3 /* MyCell.swift */; };
+		F9DEE70D1E233B0600DF91E3 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9DEE70C1E233B0600DF91E3 /* SwiftyJSON.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,7 +25,6 @@
 		160F00071E0B8B9800A94AA8 /* MyCityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCityViewController.swift; sourceTree = "<group>"; };
 		160F00091E0B8BA600A94AA8 /* ShopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopViewController.swift; sourceTree = "<group>"; };
 		160F000B1E0B8BCA00A94AA8 /* SettingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingTableViewController.swift; sourceTree = "<group>"; };
-		160F000D1E0B928D00A94AA8 /* StartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StartViewController.swift; path = ../StartViewController.swift; sourceTree = "<group>"; };
 		164DF8F21DF503D700D99880 /* FinalProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinalProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		164DF8F51DF503D700D99880 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		164DF8FA1DF503D700D99880 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -32,6 +32,8 @@
 		164DF8FF1DF503D700D99880 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		164DF9011DF503D700D99880 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F99480F21E1CD3D200401EEB /* data */ = {isa = PBXFileReference; lastKnownFileType = folder; path = data; sourceTree = "<group>"; };
+		F9DEE7081E23251400DF91E3 /* MyCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCell.swift; sourceTree = "<group>"; };
+		F9DEE70C1E233B0600DF91E3 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftyJSON.swift; path = SwiftyJSON/SwiftyJSON.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,10 +66,11 @@
 		164DF8F41DF503D700D99880 /* FinalProject */ = {
 			isa = PBXGroup;
 			children = (
+				F9DEE70C1E233B0600DF91E3 /* SwiftyJSON.swift */,
 				F99480F21E1CD3D200401EEB /* data */,
 				164DF8F51DF503D700D99880 /* AppDelegate.swift */,
 				164DF8F91DF503D700D99880 /* Main.storyboard */,
-				160F000D1E0B928D00A94AA8 /* StartViewController.swift */,
+				F9DEE7081E23251400DF91E3 /* MyCell.swift */,
 				160F00071E0B8B9800A94AA8 /* MyCityViewController.swift */,
 				160F00091E0B8BA600A94AA8 /* ShopViewController.swift */,
 				160F00051E0B8B2500A94AA8 /* MainViewController.swift */,
@@ -111,7 +114,7 @@
 				TargetAttributes = {
 					164DF8F11DF503D600D99880 = {
 						CreatedOnToolsVersion = 8.1;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -155,9 +158,10 @@
 				160F000A1E0B8BA600A94AA8 /* ShopViewController.swift in Sources */,
 				164DF8F61DF503D700D99880 /* AppDelegate.swift in Sources */,
 				160F00081E0B8B9800A94AA8 /* MyCityViewController.swift in Sources */,
+				F9DEE7091E23251400DF91E3 /* MyCell.swift in Sources */,
 				160F00061E0B8B2500A94AA8 /* MainViewController.swift in Sources */,
+				F9DEE70D1E233B0600DF91E3 /* SwiftyJSON.swift in Sources */,
 				160F000C1E0B8BCA00A94AA8 /* SettingTableViewController.swift in Sources */,
-				160F000E1E0B928D00A94AA8 /* StartViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,6 +284,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = FinalProject/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -293,6 +298,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = FinalProject/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

@@ -18,34 +18,48 @@ class ShopViewController: UIViewController, UIScrollViewDelegate {
     //需要显示的页面内容
     var courses = [
         ["name":"獨棟平房","pic":"data/house-1-01.png"],
-        ["name":"歐式別墅","pic":"data/house-2-01.png"],
-        ["name":"鄉間木屋","pic":"data/house-3-01.png"],
+        ["name":"鄉間木屋","pic":"data/house-2-01.png"],
+        ["name":"歐式別墅","pic":"data/house-3-01.png"],
         ["name":"城市公寓","pic":"data/house-4-01.png"],
     ]
-    
+    //let fileChoose = "data/houseTypeChosen.txt"
+    let fileChoose = "houseTypeChosen.txt"
     @IBAction func chooseButton(_ sender: UIButton) {
         // Create the alert controller
         let message: String =  courses[self.pageControl.currentPage]["name"]!
-        
-         let alertController = UIAlertController(title: "你選擇了", message: message, preferredStyle: .alert)
+        let alertController = UIAlertController(title: "你選擇了", message: message, preferredStyle: .alert)
         
         // Create the actions
         let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) {
             UIAlertAction in
+//            var text2 = ""
+            if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
+                let path = dir.appendingPathComponent(self.fileChoose)
+                
+                
+                do{
+                    try message.write(to: path, atomically: false, encoding: String.Encoding.utf8)}
+                catch{
+                   print("Not save correctly")
+                    
+                }
+            } else {print("dat note write")}
+            
+            self.navigationController?.popToRootViewController(animated: true)
             NSLog("OK Pressed")
+            //print(Bundle.main.bundlePath.appending("data/houseTypeChosen.txt"))
+            
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel) {
             UIAlertAction in
             NSLog("Cancel Pressed")
         }
-        
         // Add the actions
         alertController.addAction(okAction)
         alertController.addAction(cancelAction)
         
         // Present the controller
         self.present(alertController, animated: true, completion: nil)
-        
         
         
     }
