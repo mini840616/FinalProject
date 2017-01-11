@@ -61,7 +61,7 @@
                                 </connections>
                             </slider>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8He-kv-zEo">
-                                <rect key="frame" x="131" y="72" width="110" height="45"/>
+                                <rect key="frame" x="203" y="72" width="140" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.093655951321125031" green="0.6258385181427002" blue="0.76396352052688599" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="商店">
@@ -73,7 +73,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5if-Pp-A6T">
-                                <rect key="frame" x="16" y="72" width="110" height="45"/>
+                                <rect key="frame" x="39" y="72" width="140" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.093655951321125031" green="0.6258385181427002" blue="0.76396352052688599" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="我的城市">
@@ -81,17 +81,6 @@
                                 </state>
                                 <connections>
                                     <segue destination="cel-VU-jZ9" kind="show" identifier="MyCityPage" id="pnz-yb-5sk"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eAr-Sm-Q3t">
-                                <rect key="frame" x="246" y="72" width="110" height="45"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.093655951321125031" green="0.6258385181427002" blue="0.76396352052688599" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="設定">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <segue destination="dgH-eF-Hig" kind="show" identifier="SettingPage" id="K7O-b8-aqU"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -104,7 +93,6 @@
                         <outlet property="TimerSliderOutlet" destination="3hM-iU-Pox" id="rQh-g0-xOH"/>
                         <outlet property="myCityButton" destination="5if-Pp-A6T" id="hbq-cv-APD"/>
                         <outlet property="myImageView" destination="pnw-jk-7J8" id="d7O-AP-iQ6"/>
-                        <outlet property="mySettingButton" destination="eAr-Sm-Q3t" id="wVf-PQ-iu9"/>
                         <outlet property="myShopButton" destination="8He-kv-zEo" id="EpH-BX-csP"/>
                     </connections>
                 </viewController>
@@ -188,35 +176,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yXB-yx-A4r" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-639" y="124"/>
-        </scene>
-        <!--Setting-->
-        <scene sceneID="giW-FM-vDM">
-            <objects>
-                <tableViewController title="Setting" id="dgH-eF-Hig" customClass="SettingTableViewController" customModule="FinalProject" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="qGZ-6m-xKJ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="pKq-6E-TdM">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pKq-6E-TdM" id="CeI-ki-Dt0">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="dgH-eF-Hig" id="m8d-0M-xSW"/>
-                            <outlet property="delegate" destination="dgH-eF-Hig" id="6ib-Qw-O8L"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Title" id="V1F-aA-ACa"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fwD-fU-A83" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="948" y="841"/>
         </scene>
         <!--我的城市-->
         <scene sceneID="cit-fY-hKr">

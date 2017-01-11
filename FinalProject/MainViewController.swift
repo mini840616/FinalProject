@@ -174,16 +174,39 @@ class MainViewController: UIViewController {
             self.TimerSliderOutlet.isEnabled = true
             self.myCityButton.isHidden = false
             self.myShopButton.isHidden = false
-            self.mySettingButton.isHidden = false
+            //self.mySettingButton.isHidden = false
         }else {
             TimerSliderOutlet.isEnabled = false
             myCityButton.isHidden = true
             myShopButton.isHidden = true
-            mySettingButton.isHidden = true
+            //mySettingButton.isHidden = true
         }
         
         
     }
+    
+    
+    func didEnterBackground() {
+        print("background")
+        if StartOutlet.titleLabel?.text == "放棄" {
+            StartOutlet.setTitle("開始", for: UIControlState.normal)
+            timer.invalidate()
+            TimerLabel.text = "\(currentTime)"
+            enabler(enable: true)
+            myLoadImage()
+            
+            let alertController = UIAlertController(title: "放棄", message: "看來你放棄了，再加油吧！", preferredStyle: UIAlertControllerStyle.alert)
+            
+            let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) {
+                (result : UIAlertAction) -> Void in
+            }
+            
+            alertController.addAction(okAction)
+            self.present(alertController, animated: true, completion: nil)
+        }
+    }
+    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -201,6 +224,8 @@ class MainViewController: UIViewController {
         
         
         // Do any additional setup after loading the view.
+        NotificationCenter.default.addObserver(self, selector: "didEnterBackground", name: NSNotification.Name.UIApplicationDidEnterBackground, object: nil)
+        
     }
     
     override func didReceiveMemoryWarning() {
