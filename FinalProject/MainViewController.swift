@@ -75,7 +75,7 @@ class MainViewController: UIViewController {
     
     func counter() {
 
-        if (currentTime <= 0){
+        if (currentTime < 1){
             timer.invalidate()
             enabler(enable: true)
             self.writedata()
@@ -152,21 +152,39 @@ class MainViewController: UIViewController {
         
     }
     
+//    func enabler(enable: Bool) {
+//        if enable {
+//            TimerSliderOutlet.isEnabled = true
+//            myCityButton.isEnabled = true
+//            myShopButton.isEnabled = true
+//            mySettingButton.isEnabled = true
+//        }else {
+//            TimerSliderOutlet.isEnabled = false
+//            myCityButton.isEnabled = false
+//            myShopButton.isEnabled = false
+//            mySettingButton.isEnabled = false
+//        }
+//        
+//        
+//    }
+    
+    
     func enabler(enable: Bool) {
         if enable {
-            TimerSliderOutlet.isEnabled = true
-            myCityButton.isEnabled = true
-            myShopButton.isEnabled = true
-            mySettingButton.isEnabled = true
+            self.TimerSliderOutlet.isEnabled = true
+            self.myCityButton.isHidden = false
+            self.myShopButton.isHidden = false
+            self.mySettingButton.isHidden = false
         }else {
             TimerSliderOutlet.isEnabled = false
-            myCityButton.isEnabled = false
-            myShopButton.isEnabled = false
-            mySettingButton.isEnabled = false
+            myCityButton.isHidden = true
+            myShopButton.isHidden = true
+            mySettingButton.isHidden = true
         }
         
         
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let path = Bundle.main.path(forResource: "houseTypeChosen", ofType: "txt", inDirectory: "data")
@@ -181,7 +199,7 @@ class MainViewController: UIViewController {
         
         myLoadImage()
         
-
+        
         // Do any additional setup after loading the view.
     }
     
