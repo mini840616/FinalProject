@@ -23,7 +23,8 @@ class ShopViewController: UIViewController, UIScrollViewDelegate {
         ["name":"城市公寓","pic":"data/house-4-01.png"],
     ]
     //let fileChoose = "data/houseTypeChosen.txt"
-    let fileChoose = "houseTypeChosen.txt"
+    //let fileChoose: String = Bundle.main.path(forResource: "data/houseTypeChoosen", ofType: "txt")!
+    //let fileChoose = "houseTypeChosen.txt"
     @IBAction func chooseButton(_ sender: UIButton) {
         // Create the alert controller
         let message: String =  courses[self.pageControl.currentPage]["name"]!
@@ -32,22 +33,15 @@ class ShopViewController: UIViewController, UIScrollViewDelegate {
         // Create the actions
         let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) {
             UIAlertAction in
-//            var text2 = ""
-            if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
-                let path = dir.appendingPathComponent(self.fileChoose)
-                
-                
-                do{
-                    try message.write(to: path, atomically: false, encoding: String.Encoding.utf8)}
-                catch{
-                   print("Not save correctly")
-                    
-                }
-            } else {print("dat note write")}
+            do {
+                try message.write(toFile: Bundle.main.path(forResource: "houseTypeChosen", ofType: "txt", inDirectory: "data")!, atomically: true, encoding: String.Encoding.utf8)
+            } catch {
+               print("HouseType not save correctly")
+            }
+
             
             self.navigationController?.popToRootViewController(animated: true)
             NSLog("OK Pressed")
-            //print(Bundle.main.bundlePath.appending("data/houseTypeChosen.txt"))
             
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel) {
@@ -67,7 +61,7 @@ class ShopViewController: UIViewController, UIScrollViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
+        //print(Bundle.main.path(forResource: "houseTypeChosen", ofType: "txt", inDirectory: "data")! )
         //设置scrollView的内容总尺寸
         scrollView.contentSize = CGSize(
             width: CGFloat(self.view.bounds.width) * CGFloat(self.courses.count),
@@ -124,4 +118,6 @@ class ShopViewController: UIViewController, UIScrollViewDelegate {
         //展现当前页面内容
         scrollView.scrollRectToVisible(frame, animated:true)
     }
+    
+    
 }

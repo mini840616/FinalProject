@@ -21,13 +21,15 @@ class MyCityViewController: UIViewController, UICollectionViewDataSource, UIColl
         ["name":"城市公寓","pic":"data/house-4-02.png"],
         ]
     var myCityData = [[String: Date]]()
+    var myFilterCityData = [[String: Date]]()
+    var formatter = DateFormatter()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         myCollectionView.dataSource = self
         myCollectionView.delegate = self
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss Z"
+        //let formatter = DateFormatter()
+        self.formatter.dateFormat = "yyyy-MM-dd HH:mm:ss Z"
 
         let dataPath = Bundle.main.path(forResource: "data/myCity", ofType: "json")!
        
@@ -37,7 +39,7 @@ class MyCityViewController: UIViewController, UICollectionViewDataSource, UIColl
         let json = JSON(data: dataFromString!)
         
         for (_,subJson):(String, JSON) in json {
-            let oneRecordData: [String: Date] = [subJson["name"].stringValue: formatter.date(from: subJson["datetime"].stringValue)! ]
+            let oneRecordData: [String: Date] = [subJson["name"].stringValue: self.formatter.date(from: subJson["datetime"].stringValue)! ]
             
             self.myCityData.append(oneRecordData)
             
@@ -55,20 +57,23 @@ class MyCityViewController: UIViewController, UICollectionViewDataSource, UIColl
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
     {
         //返回记录数
-        return self.myCityData.count
+        self.formatter.dateFormat = "yyyy-MM-dd"
+        self.myFilterCityData = self.myCityData.filter({ (oneRecordData: [String : Date]) -> Bool in
+            self.formatter.string(from: self.myDatePicker.date)  == self.formatter.string(from: oneRecordData.values.first!)
+        })
+        return self.myFilterCityData.count
     }
       //实现UICollectionViewDataSource
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
     {
         //返回Cell内容，这里我们使用刚刚建立的Cell作为显示内容
         let cell: MyCell = myCollectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath as IndexPath) as! MyCell
-        
-        print(self.myDatePicker.date)
-        
-        //self.myDatePicker.date
+
         //cell.backgroundColor = UIColor(red: 37/255, green: 160/255, blue: 193/255, alpha: 1)
+        cell.myImageView.image = nil
+        self.formatter.dateFormat = "yyyy-MM-dd"
         for sindex in 0..<courses.count {
-            if courses[sindex]["name"] == self.myCityData[indexPath.row].keys.first
+            if courses[sindex]["name"] == self.myFilterCityData[indexPath.row].keys.first
             {
                 cell.myImageView.image = UIImage(named:courses[sindex]["pic"]!)
                 break
@@ -88,10 +93,7 @@ class MyCityViewController: UIViewController, UICollectionViewDataSource, UIColl
     @IBOutlet weak var myDatePicker: UIDatePicker!
 
     @IBAction func myDatePickerAction(_ sender: Any) {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss Z"
-        
-        //print(dateFormatter.string(from: myDatePicker.date))
+        self.myCollectionView.reloadData()
         
     }
     

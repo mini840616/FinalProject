@@ -18,6 +18,7 @@
 		F99480F31E1CD3D200401EEB /* data in Resources */ = {isa = PBXBuildFile; fileRef = F99480F21E1CD3D200401EEB /* data */; };
 		F9DEE7091E23251400DF91E3 /* MyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9DEE7081E23251400DF91E3 /* MyCell.swift */; };
 		F9DEE70D1E233B0600DF91E3 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9DEE70C1E233B0600DF91E3 /* SwiftyJSON.swift */; };
+		F9FD9DCC1E254689009C5F56 /* UIImage+Gif.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FD9DCB1E254689009C5F56 /* UIImage+Gif.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		F99480F21E1CD3D200401EEB /* data */ = {isa = PBXFileReference; lastKnownFileType = folder; path = data; sourceTree = "<group>"; };
 		F9DEE7081E23251400DF91E3 /* MyCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCell.swift; sourceTree = "<group>"; };
 		F9DEE70C1E233B0600DF91E3 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftyJSON.swift; path = SwiftyJSON/SwiftyJSON.swift; sourceTree = SOURCE_ROOT; };
+		F9FD9DCB1E254689009C5F56 /* UIImage+Gif.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIImage+Gif.swift"; path = "SwiftGif/UIImage+Gif.swift"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 		164DF8F41DF503D700D99880 /* FinalProject */ = {
 			isa = PBXGroup;
 			children = (
+				F9FD9DCB1E254689009C5F56 /* UIImage+Gif.swift */,
 				F9DEE70C1E233B0600DF91E3 /* SwiftyJSON.swift */,
 				F99480F21E1CD3D200401EEB /* data */,
 				164DF8F51DF503D700D99880 /* AppDelegate.swift */,
@@ -108,6 +111,9 @@
 		164DF8EA1DF503D600D99880 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				KnownAssetTags = (
+					New,
+				);
 				LastSwiftUpdateCheck = 0810;
 				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "江鈺云";
@@ -161,6 +167,7 @@
 				F9DEE7091E23251400DF91E3 /* MyCell.swift in Sources */,
 				160F00061E0B8B2500A94AA8 /* MainViewController.swift in Sources */,
 				F9DEE70D1E233B0600DF91E3 /* SwiftyJSON.swift in Sources */,
+				F9FD9DCC1E254689009C5F56 /* UIImage+Gif.swift in Sources */,
 				160F000C1E0B8BCA00A94AA8 /* SettingTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
