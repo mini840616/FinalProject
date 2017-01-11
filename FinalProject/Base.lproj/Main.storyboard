@@ -102,7 +102,10 @@
                         <outlet property="StartOutlet" destination="mSi-2a-LSF" id="8Yr-Bp-hov"/>
                         <outlet property="TimerLabel" destination="Ljy-eM-w7C" id="9L9-Aj-6D9"/>
                         <outlet property="TimerSliderOutlet" destination="3hM-iU-Pox" id="rQh-g0-xOH"/>
+                        <outlet property="myCityButton" destination="5if-Pp-A6T" id="hbq-cv-APD"/>
                         <outlet property="myImageView" destination="pnw-jk-7J8" id="d7O-AP-iQ6"/>
+                        <outlet property="mySettingButton" destination="eAr-Sm-Q3t" id="wVf-PQ-iu9"/>
+                        <outlet property="myShopButton" destination="8He-kv-zEo" id="EpH-BX-csP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -162,9 +165,11 @@
                     <connections>
                         <outlet property="pageControl" destination="ivp-Bi-Tzw" id="8ta-82-adn"/>
                         <outlet property="scrollView" destination="KV7-7y-vfB" id="GP0-HH-mMk"/>
+                        <segue destination="uuS-aL-7Aq" kind="unwind" identifier="unwindToMain" unwindAction="unwindFromShopWithSegue:" id="PYv-vq-8F9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BFy-YG-4YJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="uuS-aL-7Aq" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="948" y="139.880059970015"/>
         </scene>

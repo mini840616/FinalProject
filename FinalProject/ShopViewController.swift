@@ -33,20 +33,21 @@ class ShopViewController: UIViewController, UIScrollViewDelegate {
         // Create the actions
         let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) {
             UIAlertAction in
+            let houseTypefilePath = Bundle.main.bundlePath+"/data/houseTypeChosen.txt"
             do {
-                try message.write(toFile: Bundle.main.path(forResource: "houseTypeChosen", ofType: "txt", inDirectory: "data")!, atomically: true, encoding: String.Encoding.utf8)
+                try message.write(toFile: houseTypefilePath, atomically: true, encoding: String.Encoding.utf8)
             } catch {
                print("HouseType not save correctly")
             }
-
             
-            self.navigationController?.popToRootViewController(animated: true)
-            NSLog("OK Pressed")
+            self.performSegue(withIdentifier: "unwindToMain", sender: self)
+            //self.navigationController?.popToRootViewController(animated: true)
+            //NSLog("OK Pressed")
             
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel) {
             UIAlertAction in
-            NSLog("Cancel Pressed")
+            //NSLog("Cancel Pressed")
         }
         // Add the actions
         alertController.addAction(okAction)

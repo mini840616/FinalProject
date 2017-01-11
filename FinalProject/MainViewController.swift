@@ -13,6 +13,21 @@ class MainViewController: UIViewController {
 
     var currentTime = 60
     var timer = Timer()
+    var courses = [
+        ["name":"獨棟平房","pic":"data/house-1-02.png"],
+        ["name":"鄉間木屋","pic":"data/house-2-02.png"],
+        ["name":"歐式別墅","pic":"data/house-3-02.png"],
+        ["name":"城市公寓","pic":"data/house-4-02.png"],
+    ]
+    var message = "獨棟平房"
+    let houseTypefilePath = Bundle.main.bundlePath+"/data/houseTypeChosen.txt"
+
+    
+    @IBOutlet weak var myCityButton: UIButton!
+    
+    @IBOutlet weak var myShopButton: UIButton!
+    
+    @IBOutlet weak var mySettingButton: UIButton!
     @IBOutlet weak var myImageView: UIImageView!
     
     @IBOutlet weak var TimerLabel: UILabel!
@@ -34,34 +49,43 @@ class MainViewController: UIViewController {
 
         if StartOutlet.titleLabel?.text == "開始" && currentTime > 0 {
             StartOutlet.setTitle("放棄", for: UIControlState.normal)
-            TimerSliderOutlet.isEnabled = false
+            enabler(enable: false)
             myImageView.loadGif(name: "data/worker-gif")
             
         } else {
             StartOutlet.setTitle("開始", for: UIControlState.normal)
             timer.invalidate()
             TimerLabel.text = "\(currentTime)"
-            TimerSliderOutlet.isEnabled = true
-            myImageView.image = UIImage(named: "data/worker-gif.gif")
+            enabler(enable: true)
+            myLoadImage()
             
         }
         
  
     }
+
+    @IBAction  func unwindFromShop(segue: UIStoryboardSegue ) {
+        
+        myLoadImage()
+        
+    }
+    
+    
     
     
     func counter() {
 
         if (currentTime <= 0){
             timer.invalidate()
-            TimerSliderOutlet.isEnabled = true
+            enabler(enable: true)
             self.writedata()
             StartOutlet.setTitle("開始", for: UIControlState.normal)
-            myImageView.image = UIImage(named: "data/worker-gif.gif")
+            myLoadImage()
 
         } else if StartOutlet.titleLabel?.text == "開始" {
             timer.invalidate()
-            TimerSliderOutlet.isEnabled = true
+            enabler(enable: true)
+            myLoadImage()
         } else {
             currentTime -= 1
             TimerLabel.text = "\(currentTime)"
@@ -72,8 +96,7 @@ class MainViewController: UIViewController {
     }
     
     func writedata () {
-        
-        let message = try! String.init(contentsOfFile: Bundle.main.path(forResource: "houseTypeChosen", ofType: "txt", inDirectory: "data")!)
+        let message = try! String.init(contentsOfFile: houseTypefilePath)
         
         let alertController = UIAlertController(title: "恭喜你獲得了", message: message, preferredStyle: .alert)
         
@@ -108,7 +131,7 @@ class MainViewController: UIViewController {
             }
 
             
-            NSLog("data saved")
+            //NSLog("data saved")
         }
         // Add the actions
         alertController.addAction(okAction)
@@ -117,14 +140,47 @@ class MainViewController: UIViewController {
         self.present(alertController, animated: true, completion: nil)
     }
     
+    func myLoadImage () {
+        message = try! String.init(contentsOfFile: houseTypefilePath)
+        for sindex in 0..<courses.count {
+            if courses[sindex]["name"] == message
+            {
+                myImageView.image = UIImage(named:courses[sindex]["pic"]!)
+                break
+            }
+        }
+        
+    }
     
+    func enabler(enable: Bool) {
+        if enable {
+            TimerSliderOutlet.isEnabled = true
+            myCityButton.isEnabled = true
+            myShopButton.isEnabled = true
+            mySettingButton.isEnabled = true
+        }else {
+            TimerSliderOutlet.isEnabled = false
+            myCityButton.isEnabled = false
+            myShopButton.isEnabled = false
+            mySettingButton.isEnabled = false
+        }
+        
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        do {
-            try "獨棟平房".write(toFile: Bundle.main.path(forResource: "houseTypeChosen", ofType: "txt", inDirectory: "data")!, atomically: true, encoding: String.Encoding.utf8)
-        } catch {
-            print("HouseType not save correctly")
+        let path = Bundle.main.path(forResource: "houseTypeChosen", ofType: "txt", inDirectory: "data")
+        if path == nil {
+          do {
+                try message.write(toFile: houseTypefilePath, atomically: true, encoding: String.Encoding.utf8)
+            } catch {
+                print("HouseType not save correctly")
+            }
         }
+        //else {print("houseType file exist")}
+        
+        myLoadImage()
+        
 
         // Do any additional setup after loading the view.
     }
@@ -133,5 +189,6 @@ class MainViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
 
 }
