@@ -36,6 +36,7 @@ class MainViewController: UIViewController {
     @IBAction func TimerSlider(_ sender: UISlider) {
         currentTime = Int(sender.value)
         TimerLabel.text = "\(currentTime)"
+        StartOutlet.setTitle("開始", for: UIControlState.normal)
     }
     
     @IBOutlet weak var StartOutlet: UIButton!
@@ -47,7 +48,7 @@ class MainViewController: UIViewController {
 
         TimerSliderOutlet.setValue(Float(Double(currentTime)), animated: true)
 
-        if StartOutlet.titleLabel?.text == "開始" && currentTime > 0 {
+        if StartOutlet.titleLabel?.text == "開始" && currentTime > 1 {
             StartOutlet.setTitle("放棄", for: UIControlState.normal)
             enabler(enable: false)
             myImageView.loadGif(name: "data/worker-gif")
@@ -72,13 +73,14 @@ class MainViewController: UIViewController {
     
     
     
-    
     func counter() {
 
         if (currentTime < 1){
             timer.invalidate()
-            enabler(enable: true)
+            currentTime=1
             self.writedata()
+            enabler(enable: true)
+            
             StartOutlet.setTitle("開始", for: UIControlState.normal)
             myLoadImage()
 
@@ -137,7 +139,9 @@ class MainViewController: UIViewController {
         alertController.addAction(okAction)
         
         // Present the controller
-        self.present(alertController, animated: true, completion: nil)
+        if self.presentedViewController == nil {
+            self.present(alertController, animated: true, completion: nil)
+        }
     }
     
     func myLoadImage () {
