@@ -44,11 +44,14 @@ class MainViewController: UIViewController {
     
     
     @IBAction func StartButton(_ sender: UIButton) {
-        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(MainViewController.counter), userInfo: nil, repeats: true)
+        
 
         TimerSliderOutlet.setValue(Float(Double(currentTime)), animated: true)
 
-        if StartOutlet.titleLabel?.text == "開始" && currentTime > 1 {
+        if StartOutlet.titleLabel?.text == "開始" && currentTime > 0 {
+            
+            timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(MainViewController.counter), userInfo: nil, repeats: true)
+            
             StartOutlet.setTitle("放棄", for: UIControlState.normal)
             enabler(enable: false)
             myImageView.loadGif(name: "data/worker-gif")
@@ -56,6 +59,8 @@ class MainViewController: UIViewController {
         } else {
             StartOutlet.setTitle("開始", for: UIControlState.normal)
             timer.invalidate()
+            currentTime = 1
+            TimerSliderOutlet.setValue(1, animated: true)
             TimerLabel.text = "\(currentTime)"
             enabler(enable: true)
             myLoadImage()
